@@ -113,6 +113,10 @@ Todas as engines (nuvem e local) seguem o mesmo contrato interno — a troca é 
 - 📥 Os anúncios de versão saem na página de **Releases** deste repositório —
   ⭐ star e 👁️ watch para ser notificado.
 
+> 🗺️ **No roteiro:** versões para **Linux** e distribuição via **Pinokio**
+> (instalação em um clique pelo gerenciador de apps de IA) estão planejadas para
+> **versões futuras**, após o beta no Windows.
+
 ### Hardware (referência prática)
 
 | Perfil | Requisito | O que roda acelerado |

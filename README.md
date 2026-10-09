@@ -112,6 +112,10 @@ All engines (cloud and local) share the same internal contract — switching hap
 - 📥 Release announcements land on this repository's **Releases** page — ⭐ star and
   👁️ watch to get notified.
 
+> 🗺️ **On the roadmap:** builds for **Linux** and a **Pinokio** distribution
+> (one-click install through the Pinokio AI app manager) are planned for **future
+> releases**, after the Windows beta.
+
 ### Hardware (practical reference)
 
 | Profile | Requirement | What runs accelerated |
