@@ -41,7 +41,7 @@ faz o **mixdown** final em FLAC ou vídeo.
 A grande diferença: **você escolhe onde a IA roda**.
 
 - **Modo local** — motores de voz executam na **sua GPU** (Chatterbox, Qwen3, OmniVoice,
-  Fish Speech, Seed-VC, WhisperX). Nenhum áudio sai da sua máquina.
+  Fish Speech, Drama-3, Seed-VC, WhisperX). Nenhum áudio sai da sua máquina.
 - **Modo nuvem** — use sua própria chave de **Fish Audio** ou **ElevenLabs** para quem
   preferir qualidade de serviço gerenciado. As chaves são suas, salvas na sua aplicação.
 
@@ -73,10 +73,10 @@ Todas as engines (nuvem e local) seguem o mesmo contrato interno — a troca é 
 
 | Engine | Uso | Modelo | Observação |
 |---|---|---|---|
-| **Fish Audio** | TTS + clonagem | S2.1-Pro (configurável) | chave salva no app |
+| **Fish Audio** | TTS + clonagem | **S2-Pro / S2.1-Pro / S2.1-Pro (Free) / Drama-3** — selecionável nas Configurações | chave salva no app |
 | **ElevenLabs** | TTS | `eleven_multilingual_v2` (configurável) | chave por usuário |
 
-### Local (roda na sua GPU; pesos baixam no primeiro uso)
+### Local (roda na sua GPU)
 
 | Engine | Uso | Licença do modelo | Requisito |
 |---|---|---|---|
@@ -85,8 +85,14 @@ Todas as engines (nuvem e local) seguem o mesmo contrato interno — a troca é 
 | **OmniVoice** | TTS zero-shot (600+ idiomas) | Apache 2.0 | sidecar dedicado |
 | **Fish Speech V1 — S1-mini** (~0.5B) | TTS | CC-BY-NC-SA (**uso pessoal**) | servidor dedicado |
 | **Fish Speech V2 — S2-Pro** (4B) | TTS | modelo oficial | ⚠️ **em desenvolvimento** |
+| **Fish Drama-3 — small** (GGUF, TTS expressivo) | TTS | Fish Audio Community (**não comercial** abaixo de US$ 500 mil/ano) | servidor dedicado audio.cpp — ~10,5 GB de VRAM (o modelo quantizado cabe numa GPU de 16 GB) |
 | **Chatterbox VC** | STS (conversão de timbre) | MIT | sidecar ai-runner |
 | **Seed-VC V2** | STS (conversão de timbre) | modelo oficial | sidecar dedicado |
+
+> **Fluxo de instalação:** Seed-VC e OmniVoice instalam automaticamente no primeiro
+> uso. O **S1-mini** e o **Drama-3** são de **instalação manual** — um botão
+> **Instalar** no cartão do motor em Configurações → Engines baixa tudo com um modal
+> de progresso passo a passo (sem terminal).
 
 > **Mais modelos estão por vir.** O Dub Vulpes é um projeto open-source **sem fins
 > lucrativos**: novas engines e modelos de voz entram **gradualmente**, conforme
@@ -126,7 +132,8 @@ Todas as engines (nuvem e local) seguem o mesmo contrato interno — a troca é 
 | **CPU** | qualquer máquina | tudo roda (`int8`), só mais devagar |
 
 Uma **RTX 3060 12 GB** roda tranquilamente o pipeline local completo (S1-mini,
-Chatterbox, Qwen3-TTS, OmniVoice, WhisperX e separação de stems). O app é
+Chatterbox, Qwen3-TTS, OmniVoice, WhisperX e separação de stems). O **Drama-3 small**
+(GGUF ~10,5 GB) cabe inteiro numa GPU de **16 GB**. O app é
 **preparado para GPU dupla**: você escolhe uma placa prioritária e uma de apoio, e os
 modelos são carregados conforme a VRAM disponível. Modelos maiores (como o Fish
 Speech S2-Pro, ≥ 24 GB de VRAM) estão no roteiro — veja **Apoio** abaixo.
@@ -163,7 +170,9 @@ licença. O texto completo acompanha o código-fonte na versão beta.
 **Atenção aos pesos dos modelos**: cada engine carrega a licença do projeto que a
 mantém — **Chatterbox** (MIT), **Qwen3-TTS** e **OmniVoice** (Apache 2.0) são
 permissivas; os pesos do **Fish Speech V1 (S1-mini)** são **CC-BY-NC-SA** (**uso
-pessoal / não comercial**). Os pesos nunca são incluídos no pacote: são baixados de
+pessoal / não comercial**) e o **Drama-3** usa a **Fish Audio Community License**
+(gratuito para uso não comercial; uso comercial limitado abaixo de US$ 500 mil/ano).
+Os pesos nunca são incluídos no pacote: são baixados de
 fontes oficiais no primeiro uso, sob suas respectivas licenças.
 
 ---
@@ -171,3 +180,4 @@ fontes oficiais no primeiro uso, sob suas respectivas licenças.
 <p align="center">
   <strong>Dub Vulpes</strong> · GPL-3.0 · feito pela comunidade, para a comunidade 🦊
 </p>
+
